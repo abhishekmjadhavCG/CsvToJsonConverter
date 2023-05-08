@@ -44,21 +44,13 @@ namespace CsvToJsonConverter
             }
 
             while (!cancellationToken.IsCancellationRequested)
-            {
-                var isFileExists = File.Exists(csvPath);
-                if (!isFileExists)
-                {
-                    Log.Fatal("File not found at the specified path..");
-                }
-                else
-                {
-                    csvProcessor = new CSVProcessor();
-                    await csvProcessor.ProcessFile(csvPath);
-                    break;
-                }
-
+            {               
+                csvProcessor = new CSVProcessor();
+                await csvProcessor.ProcessFile(csvPath);
+                              
                 Log.Information("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(TimeSpan.FromDays(1), cancellationToken);
+                break;
             }
         }
 
@@ -66,9 +58,9 @@ namespace CsvToJsonConverter
         {
             Log.Information("Reading the file path..");
 
-            csvPath = _configuration.GetSection("CSV_FILE_PATH").Value;
+            csvPath = _configuration.GetSection("CSV_FILE_PATH").Value;                       
             csvPath = Path.Combine(csvPath, soucefileName);
-
+            
             
             if (string.IsNullOrWhiteSpace(csvPath) || 
                 string.IsNullOrWhiteSpace(soucefileName))

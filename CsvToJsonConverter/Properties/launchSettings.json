@@ -4,7 +4,10 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development"
+        "DOTNET_ENVIRONMENT": "Development",
+        "CSV_FILE_PATH": "C:\\Users\\amohanja\\WorkRelated\\Project",
+        "LOG_FILE_PATH": "C:\\Users\\amohanja\\WorkRelated\\Project\\Worker Service Logs",
+        "JSON_FILE_NAME": "Sources.json"
       }
     }
   }

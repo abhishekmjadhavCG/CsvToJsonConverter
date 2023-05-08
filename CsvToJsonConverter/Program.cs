@@ -15,8 +15,12 @@ namespace CsvToJsonConverter
                          .MinimumLevel.Debug()
                          .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                          .Enrich.FromLogContext()
-                         .WriteTo.File("C:\\Users\\amohanja\\Work Related\\Project\\Worker Service Logs\\LogFile.txt")
+                         .WriteTo.File("C:\\Users\\amohanja\\WorkRelated\\Project\\Worker Service Logs\\LogFile.txt")
                          .CreateLogger();
+
+            Environment.SetEnvironmentVariable("CSV_FILE_PATH", "C:\\Users\\amohanja\\WorkRelated\\Project");
+            Environment.SetEnvironmentVariable("LOG_FILE_PATH", "C:\\Users\\amohanja\\WorkRelated\\Project\\Worker Service Logs");
+            Environment.SetEnvironmentVariable("JSON_FILE_NAME", "Sources.json");
 
             try
             {
